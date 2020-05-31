@@ -23,4 +23,9 @@ public class TestController {
         LOGGER.info("查询出来的name是{}",name);
         return name;
     }
+
+    @RequestMapping("/")
+    public String index(){
+        return "index.html";
+    }
 }
