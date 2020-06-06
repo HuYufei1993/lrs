@@ -8,6 +8,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Controller
 public class TestController {
 
@@ -17,11 +20,13 @@ public class TestController {
 
     @RequestMapping("test")
     @ResponseBody
-    public String test(int id){
+    public Map test(int id){
         LOGGER.info("请求id是{}",id);
         String name = this.testService.test(id);
         LOGGER.info("查询出来的name是{}",name);
-        return name;
+        Map reMap = new HashMap();
+        reMap.put("name",name);
+        return reMap;
     }
 
     @RequestMapping("/")
